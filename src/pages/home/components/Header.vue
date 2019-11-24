@@ -8,7 +8,7 @@
             输入城市/游玩主题
         </div>
         <router-link to="/city">
-            <div class="header-right">{{this.city}}
+            <div class="header-right">北京
                 <span class="iconfont arrow-icon">&#xe64a;</span>
             </div>
         </router-link>
