@@ -3,9 +3,9 @@
         <router-link tag="div" class="header-abs" to="/" v-show="showAbs">
             <div class="iconfont header-abs-back">&#xe624;</div>
         </router-link>
-        <router-link tag="div" class="header-fixed" to="/" v-show="!showAbs" :style="opacityStyle">景点详情
-            <div class="iconfont headerback">&#xe624;</div>
-        </router-link>
+        <div class="header-fixed" v-show="!showAbs" :style="opacityStyle">景点详情
+            <router-link tag="div" to="/" class="iconfont headerback">&#xe624;</router-link>
+        </div>
         <div class="content">
 
         </div>
@@ -40,7 +40,10 @@ export default {
         }
     },
     activated() {
-        window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    deactivated() {
+        window.removeEventListener('scroll', this.handleScroll);
     }
 }
 </script>
