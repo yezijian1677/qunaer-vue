@@ -6,9 +6,6 @@
         <div class="header-fixed" v-show="!showAbs" :style="opacityStyle">景点详情
             <router-link tag="div" to="/" class="iconfont headerback">&#xe624;</router-link>
         </div>
-        <div class="content">
-
-        </div>
     </div>
 </template>
 
@@ -49,8 +46,6 @@ export default {
 </script>
 <style lang="stylus" scoped>
     @import '~styles/varibles.styl'
-    .content
-        height 50rem
 
     .header-abs
         position absolute
@@ -66,6 +61,7 @@ export default {
             color #fff
             font-size .4rem
     .header-fixed
+        z-index 2
         position fixed
         top 0
         left 0
