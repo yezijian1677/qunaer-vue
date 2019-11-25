@@ -35,24 +35,6 @@ export default {
             weekendList: []
         }
     },
-    methods:{
-        getHomeInfo(){
-            axios.get('/api/index.json?city='+this.city)
-            .then(this.gethomeInfoSucc)
-        },
-        gethomeInfoSucc(res){
-            res = res.data;
-            console.log(res)
-            if(res.ret&&res.data){
-                const data = res.data;
-                this.city = data.city;
-                this.swiperList = data.swiperList;
-                this.iconList = data.iconList;
-                this.recommendList = data.recommendList;
-                this.weekendList = data.weekendList;
-            }
-        }
-    },
     mounted(){
         this.lastCity = this.city;
         this.getHomeInfo();
@@ -61,6 +43,24 @@ export default {
         if(this.lastCity!==this.city){
             this.lastCity = this.city;
             this.getHomeInfo();
+        }
+    },
+    methods:{
+        getHomeInfo(){
+            axios.get('/api/index.json?city='+this.city)
+            .then(this.gethomeInfoSucc)
+        },
+        gethomeInfoSucc(res){
+            res = res.data;
+            // console.log(res)
+            if(res.ret&&res.data){
+                const data = res.data;
+                this.city = data.city;
+                this.swiperList = data.swiperList;
+                this.iconList = data.iconList;
+                this.recommendList = data.recommendList;
+                this.weekendList = data.weekendList;
+            }
         }
     },
     computed: {
